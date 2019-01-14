@@ -1,0 +1,19 @@
+<div *ngFor="let role of roles">
+  <div>
+    <div>
+      <label><b>Name:</b></label> &nbsp;
+      <span>{{role.name}}</span>
+    </div>
+    <br>
+    <div>
+      <label><b>Is Active:</b></label> &nbsp;
+      <input type="checkbox" name="isActive" [checked]="role.isActive">
+    </div>
+    <br>
+    <div>
+      <button type="button" (click)="onEditClick($event,role)" >Edit</button> &nbsp;
+      <button type="button" (click)="onDetailsClick($event,role)" >Info</button>
+    </div>
+  </div>
+  <br>
+</div>

@@ -1,0 +1,42 @@
+<div *ngIf="isInited"  class="row">
+    <div class="col-md-12">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <input type="hidden" formControlName="id">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <input type="text" class="form-control" [ngClass]="{'form-control-danger': form.controls['name'].invalid && (form.dirty || form.touched)}"
+                    formControlName="name" placeholder="User Name" required>
+                </div>
+              </div>
+              <div class="col-sm-2 offset-sm-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" formControlName="isLockedOut">
+                  <label class="form-check-label" for="isLockedOut"> Is Locked Out</label>
+                </div>
+              </div>
+            </div>
+            <select formControlName="roleIds" multiple>
+                <option *ngFor="let role of allRoles" [value]='role.id' >{{role.name}}</option>
+              </select>
+            <!-- <select class="form-control" formControlName="roleIds"  multiple>
+                <option *ngFor="let role of allRoles" [value]='role.id' >{{role.name}}</option>
+              </select> -->
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="form-group">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="offset-sm-7 col-sm-5">
+                <div class="form-group">
+                  <button type="submit" class="form-control btn btn-primary">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+    </div>
+  </div>

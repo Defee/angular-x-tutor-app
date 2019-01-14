@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/dist": true,
+			"**/node_modules": true
+    },
+    "jasmineExplorer.nodeArgv": ["-r", "ts-node/register"]
+  }
+}

@@ -1,0 +1,24 @@
+<div *ngFor="let user of users"  >
+    <div>
+      <div>
+        <label><b>Name:</b></label> &nbsp;
+        <span>{{user.name}}</span>
+      </div>
+      <br>
+      <div>
+        <label><b>Is Locked Out:</b></label> &nbsp;
+        <input type="checkbox" name="isActive" [checked]="user.isLockedOut">
+      </div>
+      <br>
+      <div>
+          <label><b>Is In Roles:</b></label> &nbsp;
+          <span>{{aggregateRoles(user)}}</span>
+        </div>
+        <br>
+      <div>
+        <button type="button" (click)="onEditClick($event,user)">Edit</button> &nbsp;
+        <button type="button" (click)="onDetailsClick($event,user)">Info</button>
+      </div>
+    </div>
+    <br>
+  </div>

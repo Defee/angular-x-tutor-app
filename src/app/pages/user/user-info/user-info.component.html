@@ -1,0 +1,24 @@
+<div >
+    <div>
+      <div>
+        <label><b>Name:</b></label> &nbsp;
+        <span>{{user.name}}</span>
+      </div>
+      <br>
+      <div>
+        <label><b>Is Active:</b></label> &nbsp;
+        <input type="checkbox" name="isActive" [checked]="user.isActive">
+      </div>
+      <br>
+      <div>
+          <label><b>Is Active:</b></label> &nbsp;
+          <span>{{aggregateRoles(user)}}</span>
+        </div>
+        <br>
+      <div>
+        <button type="button" (click)="onEditClick($event,user)">Edit</button> &nbsp;
+        <button type="button" (click)="onListClick($event)">To List</button>
+      </div>
+    </div>
+    <br>
+  </div>
