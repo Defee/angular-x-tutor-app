@@ -1,5 +1,14 @@
-<form (ngSubmit)="onSubmit()" #myForm="ngForm">
-  <div class="form-group">
+<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="example-container">
+  <input matInput type="hidden" id="id" required [(ngModel)]="role.id" name="id">
+  <!-- <mat-form-field> -->
+    <input matInput placeholder="Enter your email" [(ngModel)]="role.name" #name="ngModel" name="name" id='name'
+      required>
+    <mat-error *ngIf="name.invalid "> Name is required</mat-error>
+  <!-- </mat-form-field> -->
+
+  <mat-checkbox name="isActive" id="isActive" [(ngModel)]="role.isActive" name="isActive">Is
+    Active</mat-checkbox>
+  <!-- <div class="form-group">
     <input type="hidden" id="id" required [(ngModel)]="role.id" name="id">
     <label for="name">Name</label>
     <input type="text" class="form-control"  #name="ngModel" name="name" id='name' required [(ngModel)]="role.name">
@@ -13,7 +22,7 @@
       <input type="checkbox" class="form-check-input" id="isActive" [(ngModel)]="role.isActive" name="isActive">
       <label class="form-check-label" for="isActive"> Is Active</label>
 
-  </div>
+  </div> -->
 
-  <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Save</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.form.valid">Save</button>
 </form>

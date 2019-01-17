@@ -1,24 +1,23 @@
 <div *ngFor="let user of users"  >
-    <div>
-      <div>
-        <label><b>Name:</b></label> &nbsp;
-        <span>{{user.name}}</span>
-      </div>
-      <br>
-      <div>
-        <label><b>Is Locked Out:</b></label> &nbsp;
-        <input type="checkbox" name="isActive" [checked]="user.isLockedOut">
-      </div>
-      <br>
-      <div>
-          <label><b>Is In Roles:</b></label> &nbsp;
-          <span>{{aggregateRoles(user)}}</span>
-        </div>
-        <br>
-      <div>
-        <button type="button" (click)="onEditClick($event,user)">Edit</button> &nbsp;
-        <button type="button" (click)="onDetailsClick($event,user)">Info</button>
-      </div>
-    </div>
-    <br>
+
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{user.name}}</mat-card-title>
+          <mat-card-subtitle>Our User</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <h4>Roles</h4>
+          <mat-chip-list *ngIf="user.roles != null && user.roles.length >0">
+              <mat-chip *ngFor="let role of user.roles" >{{role.name}}</mat-chip>
+            </mat-chip-list>
+            <br>
+            <mat-checkbox  name="isActive" [checked]="user.isLockedOut" disabled="true">Is Locked Out</mat-checkbox>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button type="button" color="primary" (click)="onEditClick($event,user)">Edit</button> &nbsp;
+            <button mat-raised-button type="button" color="accent" (click)="onDetailsClick($event,user)">Info</button>
+        </mat-card-actions>
+      </mat-card>
   </div>

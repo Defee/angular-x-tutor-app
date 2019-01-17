@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'MemberhipManager';
+	navLinks: any[] = [
+		{
+			path: '/roles',
+			label: 'Roles'
+		},
+		{
+			path: '/users',
+			label: 'Users'
+		}
+	];
 }

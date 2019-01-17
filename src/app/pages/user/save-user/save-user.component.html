@@ -1,8 +1,36 @@
-<div *ngIf="isInited"  class="row">
-    <div class="col-md-12">
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <input type="hidden" formControlName="id">
-            <div class="row">
+<div *ngIf="isInited">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="example-container">
+    <input type="hidden" formControlName="id">
+    <mat-form-field>
+      <mat-label>Enter user name</mat-label>
+      <input matInput placeholder="Enter user name " formControlName="name" name="name">
+      <mat-error *ngIf="form.controls.name.invalid "> Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Roles" formControlName="roleIds" multiple>
+        <mat-option *ngFor="let role of allRoles" [value]='role.id'>{{role.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox name="isLockedOut" id="isLockedOut" formControlName="isLockedOut" name="isLockedOut">Is Locked Out</mat-checkbox>
+
+    <!-- <div class="form-group">
+                  <input type="hidden" id="id" required [(ngModel)]="role.id" name="id">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control"  #name="ngModel" name="name" id='name' required [(ngModel)]="role.name">
+                  <div [hidden]="name.valid || name.pristine"
+                           class="alert alert-danger">
+                        Name is required
+                      </div>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="isActive" [(ngModel)]="role.isActive" name="isActive">
+                    <label class="form-check-label" for="isActive"> Is Active</label>
+
+                </div> -->
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+    <!-- <div class="row">
               <div class="col-sm-8">
                 <div class="form-group">
                   <input type="text" class="form-control" [ngClass]="{'form-control-danger': form.controls['name'].invalid && (form.dirty || form.touched)}"
@@ -19,9 +47,6 @@
             <select formControlName="roleIds" multiple>
                 <option *ngFor="let role of allRoles" [value]='role.id' >{{role.name}}</option>
               </select>
-            <!-- <select class="form-control" formControlName="roleIds"  multiple>
-                <option *ngFor="let role of allRoles" [value]='role.id' >{{role.name}}</option>
-              </select> -->
             <div class="row">
               <div class="col-sm-8">
                 <div class="form-group">
@@ -36,7 +61,6 @@
                   <button type="submit" class="form-control btn btn-primary">Save</button>
                 </div>
               </div>
-            </div>
-          </form>
-    </div>
-  </div>
+            </div> -->
+  </form>
+</div>

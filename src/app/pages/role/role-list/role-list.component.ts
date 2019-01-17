@@ -1,3 +1,4 @@
+import { AuthService } from './../../../@data/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { IRole } from 'src/app/@view-models/irole';
 import { RoleService } from 'src/app/@data/role.service';
@@ -10,9 +11,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RoleListComponent implements OnInit {
 	roles: IRole[] = [];
-	constructor(private service: RoleService, private router: Router, private currentRoute: ActivatedRoute) {}
+	constructor(
+		private service: RoleService,
+		private authService: AuthService,
+		private router: Router,
+		private currentRoute: ActivatedRoute
+	) {}
 
 	ngOnInit() {
+		this.authService.testService();
 		this.service
 			.get()
 			.then((data) => {

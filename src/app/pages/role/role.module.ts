@@ -1,3 +1,10 @@
+import {
+	MatButtonModule,
+	MatCheckboxModule,
+	MatCardModule,
+	MatDividerModule,
+	MatFormFieldModule
+} from '@angular/material';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,6 +15,15 @@ import { RoleInfoComponent } from './role-info/role-info.component';
 import { FormsModule } from '@angular/forms';
 @NgModule({
 	declarations: [ RoleListComponent, SaveRoleComponent, RoleInfoComponent ],
-	imports: [ CommonModule, RoleRoutingModule, FormsModule ]
+	imports: [
+		CommonModule,
+		RoleRoutingModule,
+		FormsModule,
+		MatButtonModule,
+		MatCheckboxModule,
+		MatCardModule,
+		MatDividerModule,
+		MatFormFieldModule
+	]
 })
 export class RoleModule {}
